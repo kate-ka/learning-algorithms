@@ -11,7 +11,6 @@ bubbleSort(alist)
 print(alist)
 
 
-
 def shortBubbleSort(alist):
     exchanges = True
     passnum = len(alist)-1

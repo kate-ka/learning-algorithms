@@ -75,7 +75,7 @@ class Fraction:
 f1 = Fraction(1,4)
 f2 = Fraction(1,2)
 f3 = f1 + f2
-print f1 < f2
+print (f1 < f2)
 
 
 #f3 = sum([f1, f2])

@@ -84,7 +84,7 @@ class OrderedList:
         while current:
             data.append(current.getData())
             current = current.getNext()
-        print data
+        print (data)
 
 
 my_list = OrderedList()
@@ -98,4 +98,4 @@ my_list.add(0)
 my_list.add(2)
 my_list.add(-1)
 my_list.print_list()
-print my_list.search(67)
+print (my_list.search(67))

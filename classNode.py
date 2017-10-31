@@ -65,7 +65,7 @@ class UnorderedList:
         current = self.head
         count = 0
         while current is not None:
-            print current
+            print (current)
             count = count + 1
             current = current.getNext()
 
@@ -96,7 +96,7 @@ class UnorderedList:
                 found = False
                 index = index + 1
                 current = current.getNext()
-        if found == False:
+        if found is False:
             return -1
 
 
@@ -167,11 +167,7 @@ class UnorderedList:
             self.head = current.getNext()
         else:
             previous.setNext(current.getNext())
-        print current.getData()
-
-
-
-
+        print (current.getData())
 
 
     def print_list(self):
@@ -182,7 +178,7 @@ class UnorderedList:
             data.append(current.getData())
             current = current.getNext()
 
-        print data
+        print (data)
 
 
 
@@ -194,8 +190,8 @@ mylist.add(17)
 mylist.add(93)
 mylist.add(26)
 mylist.add(54)
-print mylist.search(17)
-print mylist.size()
+print (mylist.search(17))
+print (mylist.size())
 mylist.print_list()
 
 
@@ -208,10 +204,10 @@ mylist.print_list()
 # mylist.append(26)
 # mylist.append(54)
 
-print mylist.search(17)
-print mylist.size()
+print (mylist.search(17))
+print (mylist.size())
 mylist.print_list()
-print mylist.index(93)
+print (mylist.index(93))
 mylist.insert(0, 13)
 mylist.insert(66, 13)
 mylist.print_list()

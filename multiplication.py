@@ -9,7 +9,7 @@ def multiply(x, y):
 
 X = '1234'
 Y = '5678'
-print multiply(X, Y)
+print (multiply(X, Y))
 
 
 counter = 0
@@ -43,10 +43,10 @@ def karachuba(x, y):
     #result = 10 ** n * karachuba(str(a), str(c)) + 10 ** (n/2) * (ad_bc) + karachuba(str(b), str(d))
 
     ad_bc = karachuba(str((a + b)), str((c + d))) - karachuba(str(a), str(c)) - karachuba(str(b), str(d))
-    print ad_bc
+    print (ad_bc)
     return counter
 
-print karachuba(X, Y)
+print (karachuba(X, Y))
 
 
 

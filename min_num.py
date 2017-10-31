@@ -1,8 +1,8 @@
-# def find_min(list_of_numbs, k):
-#     list_of_numbs.sort()
-#     return list_of_numbs[k-1]
-#
-# print find_min( [5,6,3,7,8,2], 2)
+def find_min(list_of_numbs, k):
+    list_of_numbs.sort()
+    return list_of_numbs[k-1]
+
+print(find_min([5,6,3,7,8,2], 2))
 
 
 def min_num(list_of_nums, k):
@@ -18,6 +18,6 @@ def min_num(list_of_nums, k):
 
     return min_numb
 
-print min_num( [5,6,3,7,8,2], 3)
+print(min_num( [5,6,3,7,8,2], 3))
 
 

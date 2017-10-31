@@ -36,9 +36,6 @@ def _toStr(n,base):
     return res
 
 
-
-
-
 print(_toStr(1453,16))
 
 def reverse_str(str_to_reverse):
@@ -47,7 +44,7 @@ def reverse_str(str_to_reverse):
     else:
         return reverse_str(str_to_reverse[1:]) + str_to_reverse[0]
 
-print reverse_str('lion')
+print (reverse_str('lion'))
 
 
 def _is_palindrom(words):
@@ -59,6 +56,7 @@ def _is_palindrom(words):
         else:
             return False
 
+
 def is_palindrom(words):
     words = re.sub(r'[\.,\s]', '', words).lower()
 
@@ -66,7 +64,7 @@ def is_palindrom(words):
 
 
 
-print is_palindrom('Kanakanak')
+print (is_palindrom('Kanakanak'))
 print(_toStr(1453,16))
 
 
@@ -88,8 +86,8 @@ def binary_search(alist, item):
 
 
 testlist = [0, 1, 2, 8, 13, 17, 19, 32, 42,]
-print binary_search(testlist, 3)
-print binary_search(testlist, 13)
+print (binary_search(testlist, 3))
+print (binary_search(testlist, 13))
 
 
 

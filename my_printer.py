@@ -1,72 +1,75 @@
 import random
 
-class Printer(object):
 
+class Printer(object):
     def __init__(self, pages_per_minute):
         self.pages_per_minute = pages_per_minute
-        self.current_task = None
+        self.currentTask = None
+        self.timeRemaining = 0
 
-    def set_task(self, task):
-        """
-        Set task to print. it means printer will start to print this task
-        """
-        self.current_task = task
-        self.remain_time = task.get_pages() / self.pages_per_minute * 60
+    def tick(self):
+        if self.currentTask:
+            self.timeRemaining = self.timeRemaining - 1
+        if self.timeRemaining <= 0:
+            self.currentTask = None
 
-    def is_busy(self):
-        if self.current_task:
+    def busy(self):
+        if self.currentTask != None:
             return True
         else:
             return False
 
-    def tick(self):
-        if self.current_task:
-            self.remain_time = self.remain_time - 1
+    def set_task(self, task):
+        self.currentTask = task
+        self.timeRemaining = task.get_pages() * 60 / self.pages_per_minute
 
-            if self.remain_time <= 0:
-                self.current_task = None
+
+
 
 class Task(object):
     def __init__(self, timestamp):
         self.timestamp = timestamp
-        self.pages_to_print = random.randrange(1,21)
+        self.pages_to_print = random.randrange(1, 21)
 
     def get_pages(self):
         return self.pages_to_print
 
-    def get_wait_time(self, current_time):
+    def waittime(self, current_time):
         return current_time - self.timestamp
 
 
-def student_wants_to_print_document():
-    num = random.randrange(1,181)
 
+def student_wants_to_print():
+    num = random.randrange(1,181)
     if num == 180:
         return True
     else:
         return False
 
 
-
-def simulate(period_sec, pages_per_minute):
-    task_queue = []
+def simulation(period, pages_per_minute):
     printer = Printer(pages_per_minute)
-    wait_time = []
+    queue_of_tasks = []
+    timewait = []
+    for current_second in range(period):
 
+        if student_wants_to_print():
+            new_task = Task(current_second)
+            queue_of_tasks.insert(0, new_task)
 
-    for current_second in range(period_sec):
-        if student_wants_to_print_document():
-            task = Task(current_second)
-            task_queue.insert(0, task)
-
-        if not printer.is_busy() and task_queue:
-            task = task_queue.pop()
-            wait_time.append(task.get_wait_time(current_second))
-            printer.set_task(task)
+        if not printer.busy() and queue_of_tasks:
+            new_task = queue_of_tasks.pop()
+            timewait.append(new_task.waittime(current_second))
+            printer.set_task(new_task)
 
         printer.tick()
+    print ('average time is %s' %(sum(timewait)/len(timewait)))
 
-    print 'average wait time %s s' % (sum(wait_time)/ len(wait_time))
 
 for i in range(10):
-    simulate(3600, 5)
+    simulation(3600, 5)
+
+
+
+
+

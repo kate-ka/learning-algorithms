@@ -13,7 +13,6 @@ def postfixEval(postfixExpr):
     return operandStack.pop()
 
 
-
 def doMath(op, op1, op2):
     if op == '*':
         return op1 * op2

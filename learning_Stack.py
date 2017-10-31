@@ -1,5 +1,4 @@
 
-
 class Stack:
     def __init__(self):
         self.items = []
@@ -46,8 +45,8 @@ def revstring(mystr):
     return revstr
 
 
-print revstring('apple')
-print revstring('1234567890')
+print (revstring('apple'))
+print (revstring('1234567890'))
 
 
 def parChecker(symbolString):
@@ -103,7 +102,7 @@ def matches(open,close):
 
 
 print(parChecker('{{([][])}()}'))
-print(parChecker('[{()]'))]
+print(parChecker('[{()]'))
 
 
 def parChecker(symbolString):
@@ -128,11 +127,6 @@ def parChecker(symbolString):
     if stack:
         balanced = False
     return balanced
-
-
-
-
-
 
 
 print(parChecker('{{([][])}()}'))
